@@ -193,6 +193,7 @@ public class LinkedList {
 		if (index < 0 || index >= size) {
 			throw new IllegalArgumentException("index must be between 0 and size");
 		}
+
 		if (size == 1) {
 			first = null;
 			last = null;
@@ -232,20 +233,13 @@ public class LinkedList {
 	 * A textual representation of this list, for debugging.
 	 */
 	public String toString() {
-		StringBuilder builder = new StringBuilder("[");
+		StringBuilder builder = new StringBuilder();
 
 		ListIterator iterator = new ListIterator(first);
 
 		while (iterator.hasNext()) {
-			MemoryBlock memoryBlock = iterator.next();
-			builder.append(memoryBlock);
-
-			if (iterator.current != null) {
-				builder.append(", ");
-			}
+			builder.append(iterator.next() + " ");
 		}
-
-		builder.append(']');
 
 		return builder.toString();
 	}
